@@ -3,7 +3,7 @@ import { inBounds } from "../boardUtils.js";
 import { pawnMoves } from "./pawnMoves.js";
 import { rookMoves } from "./rookMoves.js";
 import { kingMoves } from "./kingMoves.js";
-import { queenMoves } from "./queenmoves.js";
+import { queenMoves } from "./queenMoves.js";
 import { wolfMoves } from "./wolfMoves.js";
 import { devilPrelateMoves } from "./devilPrelateMoves.js";
 
