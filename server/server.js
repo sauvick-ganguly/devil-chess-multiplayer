@@ -16,6 +16,7 @@ import {
 const app = express();
 const server = http.createServer(app);
 
+
 app.use(cors());
 app.use(express.json());
 
@@ -30,10 +31,6 @@ const io = new Server(server, {
 const rooms = new Map();
 
 const PORT = process.env.PORT || 5000;
-
-server.listen(PORT, () => {
-  console.log(`Server running on port ${PORT}`);
-});
 
 app.get("/", (req, res) => {
   res.send("Devil's Chess Multiplayer Server is running!");
