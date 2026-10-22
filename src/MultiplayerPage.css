@@ -1,0 +1,424 @@
+
+.online-game-page {
+  --online-gold: #dfbd7e;
+  --online-muted: #b8a8b8;
+
+  position: relative;
+  isolation: isolate;
+  min-height: 100vh;
+  min-height: 100dvh;
+  overflow: hidden;
+  padding: 28px 20px 50px;
+  color: #f8edf5;
+  background:
+    radial-gradient(ellipse at 50% 0%, #35202e, transparent 55%),
+    #0b0810;
+  font-family: "Cinzel", Georgia, serif;
+}
+
+.online-game-page *,
+.online-game-page *::before,
+.online-game-page *::after {
+  box-sizing: border-box;
+}
+
+.online-game-ambient {
+  position: absolute;
+  z-index: -1;
+  top: 150px;
+  left: 50%;
+  width: min(800px, 100vw);
+  height: 500px;
+  transform: translateX(-50%);
+  border-radius: 50%;
+  background: rgba(100, 25, 51, 0.12);
+  filter: blur(100px);
+  pointer-events: none;
+}
+
+.online-game-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 24px;
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto 34px;
+  padding: 18px 24px;
+  border: 1px solid rgba(223, 189, 126, 0.24);
+  border-radius: 12px;
+  background: rgba(21, 15, 24, 0.88);
+  box-shadow: 0 12px 40px rgba(0, 0, 0, 0.22);
+}
+
+.online-game-brand {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+
+.online-brand-emblem {
+  display: grid;
+  place-items: center;
+  width: 54px;
+  height: 54px;
+  flex-shrink: 0;
+  border: 1px solid rgba(223, 189, 126, 0.5);
+  border-radius: 50%;
+  background: #211522;
+  color: var(--online-gold);
+  font-size: 32px;
+  box-shadow: 0 0 24px rgba(159, 38, 56, 0.12);
+}
+
+.online-brand-kicker {
+  color: var(--online-gold);
+  font-size: 9px;
+  font-weight: 700;
+  letter-spacing: 2.5px;
+}
+
+.online-game-brand h1 {
+  margin: 5px 0 0;
+  color: #e4d0b5;
+  font-family: "UnifrakturCook", "Cinzel", Georgia, serif;
+  font-size: clamp(22px, 3vw, 34px);
+  line-height: 1.15;
+  letter-spacing: 1px;
+}
+
+.online-game-brand h1 span {
+  color: #a83249;
+}
+
+.online-room-details {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.online-room-code,
+.online-player-color {
+  display: flex;
+  flex-direction: column;
+  gap: 7px;
+  min-width: 120px;
+  padding: 12px 16px;
+  border-left: 1px solid rgba(223, 189, 126, 0.25);
+}
+
+.room-detail-label {
+  color: #99889e;
+  font-size: 9px;
+  font-weight: 700;
+  letter-spacing: 1.5px;
+}
+
+.online-room-code strong {
+  color: var(--online-gold);
+  font-family: "Cinzel", Georgia, serif;
+  font-size: 18px;
+  letter-spacing: 3px;
+}
+
+.online-player-color strong {
+  color: #f0e1d0;
+  font-size: 12px;
+  letter-spacing: 1px;
+}
+
+.battle-waiting-screen {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: min(650px, 100%);
+  min-height: 400px;
+  margin: 45px auto 0;
+  padding: 42px 28px;
+  border: 1px solid rgba(223, 189, 126, 0.28);
+  border-radius: 18px;
+  background:
+    radial-gradient(ellipse at 50% 0%, rgba(107, 33, 58, 0.2), transparent 65%),
+    linear-gradient(145deg, rgba(35, 23, 36, 0.96), rgba(13, 10, 17, 0.97));
+  box-shadow:
+    0 25px 90px rgba(0, 0, 0, 0.4),
+    inset 0 1px 0 rgba(255, 255, 255, 0.035);
+  text-align: center;
+  animation: onlinePageEnter 0.55s ease-out both;
+}
+
+.waiting-rune {
+  display: grid;
+  place-items: center;
+  width: 86px;
+  height: 86px;
+  margin-bottom: 25px;
+  border: 1px solid rgba(223, 189, 126, 0.45);
+  border-radius: 50%;
+  background: rgba(223, 189, 126, 0.04);
+  color: var(--online-gold);
+  font-size: 40px;
+  box-shadow: 0 0 45px rgba(159, 38, 56, 0.13);
+}
+
+.waiting-eyebrow {
+  color: var(--online-gold);
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 4px;
+}
+
+.battle-waiting-screen h2 {
+  margin: 17px 0 12px;
+  color: #e8d4b7;
+  font-family: "Cinzel", Georgia, serif;
+  font-size: clamp(23px, 4vw, 35px);
+  font-weight: 800;
+  line-height: 1.35;
+}
+
+.waiting-description {
+  max-width: 430px;
+  margin: 0;
+  color: var(--online-muted);
+  font-family: Georgia, serif;
+  font-size: 14px;
+  line-height: 1.8;
+}
+
+.waiting-invitation {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: min(340px, 100%);
+  margin-top: 28px;
+  padding: 20px;
+  border: 1px dashed rgba(223, 189, 126, 0.4);
+  border-radius: 10px;
+  background: rgba(5, 4, 9, 0.38);
+}
+
+.waiting-invitation > span {
+  color: #aa98ad;
+  font-size: 9px;
+  font-weight: 700;
+  letter-spacing: 2px;
+}
+
+.waiting-invitation strong {
+  margin: 12px 0 15px;
+  color: #f0cf8d;
+  font-family: "Cinzel", Georgia, serif;
+  font-size: 32px;
+  letter-spacing: 7px;
+}
+
+.waiting-invitation button {
+  padding: 11px 15px;
+  border: 1px solid rgba(223, 189, 126, 0.4);
+  border-radius: 6px;
+  background: rgba(223, 189, 126, 0.08);
+  color: var(--online-gold);
+  cursor: pointer;
+  font-family: "Cinzel", Georgia, serif;
+  font-size: 9px;
+  font-weight: 800;
+  letter-spacing: 1px;
+}
+
+.waiting-invitation button:hover {
+  background: rgba(223, 189, 126, 0.16);
+}
+
+.opponent-waiting-status {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  margin-top: 27px;
+  color: #bc9cad;
+  font-family: "Cinzel", Georgia, serif;
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 1.5px;
+}
+
+.waiting-pulse,
+.battle-live-dot {
+  width: 8px;
+  height: 8px;
+  flex-shrink: 0;
+  border-radius: 50%;
+  background: #d8ad63;
+  box-shadow: 0 0 12px rgba(216, 173, 99, 0.65);
+  animation: onlinePulse 1.6s ease-in-out infinite;
+}
+
+.online-battle-arena {
+  width: 100%;
+  max-width: 1000px;
+  margin: 0 auto;
+  animation: onlinePageEnter 0.65s ease-out both;
+}
+
+.battle-status-bar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  margin-bottom: 20px;
+  padding: 15px 20px;
+  border: 1px solid rgba(223, 189, 126, 0.22);
+  border-radius: 9px;
+  background: rgba(21, 15, 24, 0.88);
+}
+
+.battle-status-indicator {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  color: #a6d5a9;
+  font-size: 10px;
+  font-weight: 800;
+  letter-spacing: 2px;
+}
+
+.battle-live-dot {
+  width: 7px;
+  height: 7px;
+  background: #83cf92;
+  box-shadow: 0 0 10px rgba(131, 207, 146, 0.55);
+}
+
+.battle-turn-status {
+  color: var(--online-gold);
+  font-size: 11px;
+  font-weight: 800;
+  letter-spacing: 1.5px;
+  text-align: right;
+}
+
+.online-board-container {
+  display: flex;
+  justify-content: center;
+  width: 100%;
+}
+
+@keyframes onlinePageEnter {
+  from {
+    opacity: 0;
+    transform: translateY(15px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes onlinePulse {
+  0%, 100% {
+    opacity: 1;
+    transform: scale(1);
+  }
+  50% {
+    opacity: 0.45;
+    transform: scale(0.8);
+  }
+}
+
+@media (max-width: 700px) {
+  .online-game-page {
+    padding: 18px 12px 32px;
+  }
+
+  .online-game-header {
+    flex-direction: column;
+    align-items: stretch;
+    gap: 20px;
+    margin-bottom: 24px;
+    padding: 18px;
+  }
+
+  .online-game-brand {
+    justify-content: center;
+  }
+
+  .online-room-details {
+    justify-content: center;
+  }
+
+  .online-room-code,
+  .online-player-color {
+    flex: 1;
+    min-width: 0;
+    padding: 10px;
+  }
+
+  .online-room-code strong {
+    font-size: 16px;
+  }
+
+  .battle-waiting-screen {
+    min-height: 360px;
+    margin-top: 15px;
+    padding: 32px 18px;
+  }
+
+  .waiting-rune {
+    width: 70px;
+    height: 70px;
+    font-size: 32px;
+  }
+
+  .battle-status-bar {
+    padding: 13px;
+  }
+
+  .battle-status-indicator,
+  .battle-turn-status {
+    font-size: 9px;
+    letter-spacing: 1px;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .online-game-page *,
+  .online-game-page *::before,
+  .online-game-page *::after {
+    animation: none !important;
+    transition: none !important;
+  }
+}
+.online-brand-wolf {
+  display: block;
+  width: 38px;
+  height: 38px;
+  object-fit: contain;
+  filter: drop-shadow(0 0 8px rgba(223, 189, 126, 0.3));
+}
+.online-player-color-label {
+  display: flex;
+  align-items: center;
+  gap: 9px;
+}
+
+.player-color-circle {
+  display: inline-block;
+  width: 12px;
+  height: 12px;
+  flex-shrink: 0;
+  border-radius: 50%;
+}
+
+.white-circle {
+  background: #ffffff;
+  border: 1px solid #c9bda9;
+  box-shadow: 0 0 8px rgba(255, 255, 255, 0.3);
+}
+
+.black-circle {
+  background: #17121b;
+  border: 1px solid #c9bda9;
+  box-shadow: 0 0 8px rgba(223, 189, 126, 0.2);
+}

@@ -1,0 +1,569 @@
+@import url('https://fonts.googleapis.com/css2?family=Cinzel:wght@400;500;600;700;800;900&family=UnifrakturCook:wght@700&display=swap');
+.devil-lobby {
+  --lobby-gold: #e7c27a;
+  --lobby-gold-bright: #ffe3a0;
+  --lobby-red: #9f2638;
+  --lobby-bg: #0b0810;
+  --lobby-panel: rgba(25, 18, 30, 0.92);
+
+  position: relative;
+  isolation: isolate;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 100vh;
+  min-height: 100dvh;
+  overflow: hidden;
+  padding: 48px 20px;
+  box-sizing: border-box;
+  background:
+    radial-gradient(ellipse at 50% 0%, #382033 0%, transparent 50%),
+    radial-gradient(ellipse at 0% 100%, #32151e 0%, transparent 45%),
+    var(--lobby-bg);
+  color: #f8edf5;
+  font-family: Georgia, "Times New Roman", serif;
+}
+
+.devil-lobby *,
+.devil-lobby *::before,
+.devil-lobby *::after {
+  box-sizing: border-box;
+}
+
+.lobby-ambient {
+  position: absolute;
+  z-index: -1;
+  width: 360px;
+  height: 360px;
+  border-radius: 50%;
+  filter: blur(100px);
+  opacity: 0.2;
+  pointer-events: none;
+}
+
+.ambient-one {
+  top: 5%;
+  left: -180px;
+  background: #8f1e39;
+}
+
+.ambient-two {
+  right: -180px;
+  bottom: 5%;
+  background: #6836a0;
+}
+
+.lobby-shell {
+  width: 100%;
+  max-width: 1000px;
+  margin: auto;
+  animation: lobbyAppear 0.7s ease-out both;
+}
+
+.lobby-header {
+  text-align: center;
+  margin-bottom: 40px;
+}
+
+.lobby-eyebrow,
+.lobby-card-label {
+  color: var(--lobby-gold);
+  font-family: Arial, sans-serif;
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 4px;
+}
+
+.lobby-emblem {
+  display: grid;
+  place-items: center;
+  width: 74px;
+  height: 74px;
+  margin: 22px auto 14px;
+  border: 1px solid rgba(231, 194, 122, 0.65);
+  border-radius: 50%;
+  color: var(--lobby-gold-bright);
+  font-size: 42px;
+  background: linear-gradient(145deg, #34202e, #100c14);
+  box-shadow:
+    0 0 28px rgba(183, 80, 112, 0.17),
+    inset 0 0 20px rgba(231, 194, 122, 0.07);
+}
+
+.lobby-header h1 {
+  margin: 0;
+  color: #fff5e8;
+  font-size: clamp(30px, 5vw, 54px);
+  font-weight: 900;
+  letter-spacing: 5px;
+  line-height: 1.15;
+  text-shadow: 0 4px 25px rgba(0, 0, 0, 0.65);
+}
+
+.lobby-header h1 span {
+  color: var(--lobby-gold);
+}
+
+.lobby-subtitle {
+  max-width: 520px;
+  margin: 16px auto 0;
+  color: #b9aab9;
+  font-family: Arial, sans-serif;
+  font-size: 14px;
+  line-height: 1.7;
+}
+
+.lobby-divider {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 15px;
+  width: min(320px, 80%);
+  margin: 25px auto 0;
+  color: var(--lobby-gold);
+}
+
+.lobby-divider span {
+  height: 1px;
+  flex: 1;
+  background: linear-gradient(
+    90deg,
+    transparent,
+    rgba(231, 194, 122, 0.7)
+  );
+}
+
+.lobby-divider span:last-child {
+  transform: rotate(180deg);
+}
+
+.lobby-divider i {
+  font-size: 17px;
+  font-style: normal;
+}
+
+.lobby-panels {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) 44px minmax(0, 1fr);
+  align-items: stretch;
+}
+
+.lobby-card {
+  min-width: 0;
+  padding: 32px;
+  border: 1px solid rgba(231, 194, 122, 0.2);
+  border-radius: 16px;
+  background:
+    linear-gradient(
+      145deg,
+      rgba(46, 30, 43, 0.92),
+      rgba(17, 13, 22, 0.97)
+    );
+  box-shadow:
+    0 20px 60px rgba(0, 0, 0, 0.25),
+    inset 0 1px 0 rgba(255, 255, 255, 0.035);
+  transition:
+    transform 0.25s ease,
+    border-color 0.25s ease,
+    box-shadow 0.25s ease;
+}
+
+.lobby-card:hover {
+  transform: translateY(-4px);
+  border-color: rgba(231, 194, 122, 0.48);
+  box-shadow: 0 24px 65px rgba(0, 0, 0, 0.35);
+}
+
+.lobby-card-icon {
+  display: grid;
+  place-items: center;
+  width: 54px;
+  height: 54px;
+  margin-bottom: 24px;
+  border: 1px solid rgba(231, 194, 122, 0.35);
+  border-radius: 12px;
+  background: rgba(231, 194, 122, 0.07);
+  color: var(--lobby-gold);
+  font-size: 28px;
+}
+
+.lobby-card-label {
+  font-size: 9px;
+  letter-spacing: 2.2px;
+}
+
+.lobby-card h2 {
+  margin: 12px 0;
+  color: #fff4e7;
+  font-size: clamp(23px, 3vw, 30px);
+}
+
+.lobby-card > p {
+  min-height: 48px;
+  margin: 0 0 26px;
+  color: #b9adbd;
+  font-family: Arial, sans-serif;
+  font-size: 13px;
+  line-height: 1.7;
+}
+
+.lobby-button {
+  display: block;
+  width: 100%;
+  min-height: 49px;
+  padding: 14px 16px;
+  border: 1px solid transparent;
+  border-radius: 7px;
+  cursor: pointer;
+  font-family: Arial, sans-serif;
+  font-size: 11px;
+  font-weight: 800;
+  letter-spacing: 1.5px;
+  transition:
+    transform 0.2s ease,
+    filter 0.2s ease,
+    box-shadow 0.2s ease;
+}
+
+.lobby-button:hover:not(:disabled) {
+  transform: translateY(-2px);
+  filter: brightness(1.12);
+}
+
+.lobby-button:focus-visible,
+.copy-code-button:focus-visible,
+.room-code-input:focus-visible {
+  outline: 2px solid var(--lobby-gold-bright);
+  outline-offset: 4px;
+}
+
+.lobby-button:disabled {
+  cursor: wait;
+  opacity: 0.65;
+}
+
+.create-button {
+  color: #21130e;
+  background: linear-gradient(135deg, #ffe4a3, #c18b3d);
+  box-shadow: 0 7px 25px rgba(193, 139, 61, 0.15);
+}
+
+.create-button:hover:not(:disabled) {
+  box-shadow: 0 8px 30px rgba(193, 139, 61, 0.3);
+}
+
+.join-button {
+  margin-top: 16px;
+  color: #fff2f4;
+  border-color: rgba(227, 101, 121, 0.45);
+  background: linear-gradient(135deg, #a92d45, #68192d);
+  box-shadow: 0 7px 25px rgba(159, 38, 56, 0.16);
+}
+
+.join-button:hover:not(:disabled) {
+  box-shadow: 0 8px 30px rgba(159, 38, 56, 0.32);
+}
+
+.lobby-or {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.lobby-or span {
+  display: grid;
+  place-items: center;
+  width: 34px;
+  height: 34px;
+  border: 1px solid rgba(231, 194, 122, 0.25);
+  border-radius: 50%;
+  color: var(--lobby-gold);
+  background: #17101a;
+  font-family: Arial, sans-serif;
+  font-size: 10px;
+  font-weight: 700;
+}
+
+.join-form label {
+  display: block;
+  margin-bottom: 10px;
+  color: #d4c0d2;
+  font-family: Arial, sans-serif;
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 1.5px;
+}
+
+.room-code-input {
+  display: block;
+  width: 100%;
+  min-width: 0;
+  min-height: 54px;
+  padding: 12px;
+  border: 1px solid rgba(231, 194, 122, 0.27);
+  border-radius: 7px;
+  background: rgba(5, 4, 9, 0.65);
+  color: var(--lobby-gold-bright);
+  font-family: "Courier New", monospace;
+  font-size: 23px;
+  font-weight: 800;
+  letter-spacing: 7px;
+  text-align: center;
+  text-transform: uppercase;
+  transition: border-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+.room-code-input::placeholder {
+  color: #69596c;
+  font-size: 12px;
+  letter-spacing: 2px;
+}
+
+.room-code-input:focus {
+  border-color: var(--lobby-gold);
+  box-shadow: 0 0 18px rgba(231, 194, 122, 0.1);
+}
+
+.invitation-panel {
+  margin-top: 22px;
+  padding: 18px;
+  border: 1px dashed rgba(231, 194, 122, 0.5);
+  border-radius: 10px;
+  background: rgba(5, 4, 9, 0.42);
+  text-align: center;
+  animation: lobbyAppear 0.35s ease-out both;
+}
+
+.invitation-label {
+  color: #c8b6c8;
+  font-family: Arial, sans-serif;
+  font-size: 9px;
+  font-weight: 700;
+  letter-spacing: 1.6px;
+}
+
+.invitation-code {
+  margin: 13px 0;
+  color: var(--lobby-gold-bright);
+  font-family: "Courier New", monospace;
+  font-size: clamp(25px, 4vw, 34px);
+  font-weight: 900;
+  letter-spacing: 8px;
+  text-shadow: 0 0 18px rgba(231, 194, 122, 0.2);
+}
+
+.copy-code-button {
+  padding: 10px 15px;
+  border: 1px solid rgba(231, 194, 122, 0.4);
+  border-radius: 6px;
+  background: rgba(231, 194, 122, 0.08);
+  color: var(--lobby-gold);
+  cursor: pointer;
+  font-family: Arial, sans-serif;
+  font-size: 10px;
+  font-weight: 800;
+  letter-spacing: 1px;
+}
+
+.copy-code-button:hover {
+  background: rgba(231, 194, 122, 0.16);
+}
+
+.invitation-panel p {
+  margin: 13px 0 0;
+  color: #a99aab;
+  font-family: Arial, sans-serif;
+  font-size: 11px;
+}
+
+.lobby-message {
+  max-width: 600px;
+  margin: 20px auto 0;
+  padding: 13px 16px;
+  border: 1px solid rgba(255, 105, 120, 0.35);
+  border-radius: 8px;
+  background: rgba(112, 24, 43, 0.22);
+  color: #ffb7c1;
+  font-family: Arial, sans-serif;
+  font-size: 13px;
+  text-align: center;
+}
+
+.lobby-message span {
+  margin-right: 6px;
+}
+
+.lobby-footer {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+  margin-top: 32px;
+  color: #8f8192;
+  font-family: Arial, sans-serif;
+  font-size: 9px;
+  font-weight: 700;
+  letter-spacing: 1.5px;
+}
+
+.status-dot {
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background: #80cf92;
+  box-shadow: 0 0 10px rgba(128, 207, 146, 0.5);
+}
+
+.footer-separator {
+  color: #8f6b48;
+  font-size: 7px;
+}
+
+@keyframes lobbyAppear {
+  from {
+    opacity: 0;
+    transform: translateY(12px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@media (max-width: 720px) {
+  .devil-lobby {
+    align-items: flex-start;
+    padding: 36px 16px;
+  }
+
+  .lobby-header {
+    margin-bottom: 28px;
+  }
+
+  .lobby-header h1 {
+    letter-spacing: 3px;
+  }
+
+  .lobby-emblem {
+    width: 64px;
+    height: 64px;
+    font-size: 36px;
+  }
+
+  .lobby-panels {
+    grid-template-columns: minmax(0, 1fr);
+    gap: 16px;
+  }
+
+  .lobby-card {
+    padding: 25px;
+  }
+
+  .lobby-card > p {
+    min-height: 0;
+  }
+
+  .lobby-card-icon {
+    margin-bottom: 18px;
+  }
+
+  .lobby-or {
+    height: 24px;
+  }
+
+  .lobby-or span {
+    width: 30px;
+    height: 30px;
+  }
+
+  .lobby-footer {
+    line-height: 1.8;
+    letter-spacing: 1px;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .lobby-shell,
+  .invitation-panel {
+    animation: none;
+  }
+
+  .lobby-card,
+  .lobby-button {
+    transition: none;
+  }
+}
+/* Overall Gothic typography */
+.devil-lobby {
+  font-family: "Cinzel", serif;
+  letter-spacing: 0.5px;
+}
+
+/* Main game title */
+.lobby-header h1 {
+  font-family: "UnifrakturCook", "Cinzel", serif;
+  font-size: clamp(38px, 6vw, 66px);
+  font-weight: 700;
+  letter-spacing: 2px;
+  line-height: 1.15;
+  color: #d9c1a0;
+  text-shadow:
+    0 0 8px rgba(135, 35, 55, 0.7),
+    0 0 24px rgba(75, 12, 30, 0.9),
+    2px 3px 3px #000;
+}
+
+/* DEVIL'S / CHESS title accent */
+.lobby-header h1 span {
+  font-family: "UnifrakturCook", serif;
+  color: #a82b43;
+  text-shadow:
+    0 0 12px rgba(180, 25, 50, 0.6),
+    2px 3px 3px #000;
+}
+
+/* Card headings */
+.lobby-card h2 {
+  font-family: "Cinzel", serif;
+  font-weight: 800;
+  letter-spacing: 1px;
+  color: #d7bd91;
+  text-shadow: 0 2px 8px rgba(0, 0, 0, 0.7);
+}
+
+/* Small labels and status text */
+.lobby-eyebrow,
+.lobby-card-label,
+.invitation-label,
+.lobby-footer {
+  font-family: "Cinzel", serif;
+  font-weight: 700;
+  letter-spacing: 2px;
+}
+
+/* Buttons */
+.lobby-button,
+.copy-code-button {
+  font-family: "Cinzel", serif;
+  font-weight: 800;
+  letter-spacing: 1.5px;
+}
+
+/* Invitation code */
+.invitation-code,
+.room-code-input {
+  font-family: "Cinzel", serif;
+  font-weight: 900;
+  letter-spacing: 5px;
+}
+
+/* Descriptions */
+.lobby-subtitle,
+.lobby-card > p,
+.invitation-panel p,
+.join-form label {
+  font-family: "Cinzel", serif;
+  font-size: 12px;
+  line-height: 1.9;
+}
